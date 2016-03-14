@@ -11,9 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160314204821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "mailboxes", force: :cascade do |t|
+    t.string   "name"
+    t.hstore   "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "mailboxes", ["data"], name: "index_mailboxes_on_data", using: :gin
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.hstore   "preferences"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end
