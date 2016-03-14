@@ -7,7 +7,7 @@
 
 <p>
   <strong>Data:</strong>
-  <%= @mailbox.data %>
+  <%= @mailbox.data.to_hash %>
 </p>
 
 <%= link_to 'Edit', edit_mailbox_path(@mailbox) %> |

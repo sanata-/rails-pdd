@@ -15,7 +15,7 @@
     <% @mailboxes.each do |mailbox| %>
       <tr>
         <td><%= mailbox.name %></td>
-        <td><%= mailbox.data %></td>
+        <td><%= mailbox.data.to_hash %></td>
         <td><%= link_to 'Show', mailbox %></td>
         <td><%= link_to 'Edit', edit_mailbox_path(mailbox) %></td>
         <td><%= link_to 'Destroy', mailbox, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -53,6 +53,6 @@ class MailboxesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def mailbox_params
-      params.require(:mailbox).permit(:name, :data)
+      params.require(:mailbox).permit(:name, data: [:iname, :sex, :aliases, :fname, :birth_date, :fio])
     end
 end

@@ -3,7 +3,10 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :data %>
+    <%= f.simple_fields_for :data do |data| %>
+    <%= data.input :iname %>
+    <%= data.input :sex %>
+<% end %>
   </div>
 
   <div class="form-actions">
